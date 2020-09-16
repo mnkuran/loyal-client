@@ -7,8 +7,7 @@
 </template>
 
 <script>
-import firebase from "firebase/app";
-
+import { auth } from "../firebase";
 import LoginDisplay from "../components/LoginDisplay";
 
 export default {
@@ -18,7 +17,7 @@ export default {
   methods: {
     async logout() {
       try {
-        await firebase.auth().signOut();
+        await auth.signOut();
         this.$router.push({ name: "Login" });
       } catch(error) {
         alert(error);

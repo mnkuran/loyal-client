@@ -8,12 +8,14 @@
 <script>
 import firebase from "firebase/app";
 
+import { auth } from "../firebase";
+
 export default {
   methods: {
     async login() {
       const provider = new firebase.auth.GoogleAuthProvider();
       try {
-        await firebase.auth().signInWithPopup(provider);
+        await auth.signInWithPopup(provider);
         this.$router.push({ name: "Home" });
       } catch (error) {
         alert(error);
