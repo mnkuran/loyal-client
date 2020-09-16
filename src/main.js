@@ -1,6 +1,7 @@
 import Vue from "vue";
 
 import firebase from "firebase/app";
+import "firebase/auth";
 
 import App from "./App.vue";
 import router from "./router";
@@ -20,8 +21,14 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+let app;
+firebase.auth().onAuthStateChanged((user) => {
+  store.dispatch("fetchUser", user);
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount("#app");
+  }
+})
