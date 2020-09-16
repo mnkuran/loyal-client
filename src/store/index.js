@@ -17,7 +17,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_LOGGED_IN(state, value) {
-      state.user.loggedIn = value;
+      state.user.isLoggedIn = value;
     },
     SET_USER(state, data) {
       state.user.data = data;
