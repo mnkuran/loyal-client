@@ -1,8 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import firebase from "firebase/app";
-
+import store from "../store";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 
@@ -31,9 +30,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (requiresAuth && !currentUser) next("/login");
+  const isLoggedIn = store.getters.user.isLoggedIn;
+  if (requiresAuth && !isLoggedIn) next("/login");
   else next();
 });
 
