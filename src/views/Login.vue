@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <h2>Login</h2>
-    <button @click="login">Sign in with Google</button>
+  <div class="section">
+    <div class="container">
+      <b-button @click="login">Sign in with Google</b-button>
+    </div>
   </div>
 </template>
 
