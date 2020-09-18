@@ -14,13 +14,13 @@
     </div>
     <div class="section">
       <div class="container">
-        <div v-for="customer in customers" :key="customer.id">
-          <h3>{{ customer.name }}</h3>
-          <p>{{ customer.id }}</p>
-          <p>
-            <strong>Points: </strong><span>{{ customer.points }}</span>
-          </p>
-          <hr />
+        <b-input size="is-large"></b-input>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div v-for="customer in customers" :key="customer.id" class="box">
+          <CustomerBox :customer="customer" />
         </div>
       </div>
     </div>
@@ -30,6 +30,7 @@
 <script>
 import { auth, db } from "../firebase";
 import LoginDisplay from "../components/LoginDisplay";
+import CustomerBox from "../components/CustomerBox";
 
 export default {
   data() {
@@ -39,6 +40,7 @@ export default {
   },
   components: {
     LoginDisplay,
+    CustomerBox
   },
   methods: {
     async logout() {
