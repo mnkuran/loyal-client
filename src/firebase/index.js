@@ -9,14 +9,11 @@ var firebaseConfig = {
   projectId: "kuran-loyal",
   storageBucket: "kuran-loyal.appspot.com",
   messagingSenderId: "1076892292545",
-  appId: "1:1076892292545:web:645ffd66f4902154914b40",
+  appId: "1:1076892292545:web:645ffd66f4902154914b40"
 };
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-export {
-    auth,
-    db
-};
+export { auth, db };

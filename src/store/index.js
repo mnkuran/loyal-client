@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     user: {
       isLoggedIn: false,
-      data:  null
+      data: null
     }
   },
   getters: {

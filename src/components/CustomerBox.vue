@@ -36,8 +36,8 @@
 
 <script>
 export default {
-    props: {
-        customer: Object
-    }
+  props: {
+    customer: Object
+  }
 };
 </script>
